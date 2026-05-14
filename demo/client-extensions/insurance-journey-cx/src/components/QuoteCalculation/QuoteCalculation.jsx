@@ -149,7 +149,7 @@ function QuoteCalculation({ formData = {}, pageConfig = {}, onProceed }) {
         <div className="ij-quote-page__content">
           {/* Sidebar */}
           <aside className="ij-quote-page__sidebar">
-            <ProtectionForm values={selections} onUpdate={updateSelection} />
+            <ProtectionForm values={selections} onUpdate={updateSelection} age={age} />
             
             {/* Customer Testimonial placeholder matching design */}
             <div className="ij-quote-page__testimonial">
