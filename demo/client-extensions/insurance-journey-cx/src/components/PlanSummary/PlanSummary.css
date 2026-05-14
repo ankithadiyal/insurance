@@ -164,15 +164,18 @@
 /* ── Premium Bar ──────────────────────────────── */
 
 .ij-summary__premium-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
-  padding: 20px 28px;
-  margin-top: 2px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  margin-bottom: 2px;
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
 }
 
 .ij-summary__premium-info {

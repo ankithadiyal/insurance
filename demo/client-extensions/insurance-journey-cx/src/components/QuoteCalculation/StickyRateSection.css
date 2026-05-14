@@ -3,13 +3,16 @@
    ────────────────────────────────────────────── */
 
 .ij-sticky-rate {
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   background-color: #fff;
   border-top: 1px solid #e5e7eb;
-  box-shadow: 0 -4px 6px -1px #0000000d;
-  padding: 30px 0;
-  margin-top: 24px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+  padding: 16px 0;
+  z-index: 1000;
 }
 
 .ij-sticky-rate__container {
