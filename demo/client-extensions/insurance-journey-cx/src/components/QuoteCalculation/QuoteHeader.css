@@ -1,0 +1,74 @@
+/* ──────────────────────────────────────────────
+   QuoteHeader Styles
+   ────────────────────────────────────────────── */
+
+.ij-quote-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.ij-quote-header__pay-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ij-quote-header__label {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.ij-quote-header__amount {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.ij-quote-header__duration {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.ij-quote-header__info-btn {
+  background: none;
+  border: none;
+  color: #0077b6;
+  display: flex;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ij-quote-header__user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.ij-quote-header__user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.ij-quote-header__divider {
+  color: #d1d5db;
+}
+
+.ij-quote-header__user-age {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.ij-quote-header__chevron {
+  color: #0077b6;
+}

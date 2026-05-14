@@ -1,0 +1,25 @@
+/* ──────────────────────────────────────────────
+   Global Resets & Design Tokens
+   Insurance Journey Client Extension
+   ────────────────────────────────────────────── */
+
+/* ── Box-sizing reset ───────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Root app wrapper ───────────────────────── */
+
+.ij-app {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

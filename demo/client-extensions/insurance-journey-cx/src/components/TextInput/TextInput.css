@@ -1,0 +1,122 @@
+/* ──────────────────────────────────────────────
+   TextInput Styles
+   Standard text / email input matching the
+   PNB MetLife design language.
+   ────────────────────────────────────────────── */
+
+.ij-text-input {
+  margin-bottom: 20px;
+}
+
+/* ── Label ──────────────────────────────────── */
+
+.ij-text-input__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.ij-text-input__required {
+  color: #e53935;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* ── Wrapper ────────────────────────────────── */
+
+.ij-text-input__wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ij-text-input__wrapper:focus-within {
+  border-color: #0056a6;
+  box-shadow: 0 0 0 3px rgba(0, 86, 166, 0.1);
+}
+
+.ij-text-input__wrapper--error {
+  border-color: #e53935;
+}
+
+.ij-text-input__wrapper--error:focus-within {
+  border-color: #e53935;
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.1);
+}
+
+/* ── Prefix ─────────────────────────────────── */
+
+.ij-text-input__prefix {
+  padding-left: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  user-select: none;
+}
+
+/* ── Icon ───────────────────────────────────── */
+
+.ij-text-input__icon {
+  padding-right: 14px;
+  display: flex;
+  align-items: center;
+  color: #009688;
+  pointer-events: auto;
+}
+
+/* ── Input field ────────────────────────────── */
+
+.ij-text-input__field {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 400;
+  color: #1a1a1a;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.ij-text-input__field::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* ── Error message ──────────────────────────── */
+
+.ij-text-input__error {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #e53935;
+  line-height: 1.3;
+}
+/* ── Date input overrides ──────────────────────── */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+/* For Firefox, hide the native icon if possible or just use webkit for Chrome/Edge */
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}

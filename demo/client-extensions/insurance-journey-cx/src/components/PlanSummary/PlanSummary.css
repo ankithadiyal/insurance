@@ -1,0 +1,550 @@
+/* ──────────────────────────────────────────────
+   PlanSummary (Step 4) — Pixel-Perfect Styles
+   Matches quotesummary - Step 4.png reference.
+   ────────────────────────────────────────────── */
+
+.ij-summary {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  padding-bottom: 40px;
+}
+
+.ij-summary__container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 0;
+}
+
+/* ── Page Header ──────────────────────────────── */
+
+.ij-summary__page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.ij-summary__page-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+.ij-summary__page-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.ij-summary__download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #0077b6;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.ij-summary__download-btn:hover {
+  background-color: #005f91;
+}
+
+/* ── Section Header (Blue Bar) ────────────────── */
+
+.ij-summary__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0077b6;
+  padding: 14px 24px;
+  border-radius: 8px 8px 0 0;
+  color: #ffffff;
+}
+
+.ij-summary__section-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ij-summary__section-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.ij-summary__edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background-color: #ffffff;
+  color: #0077b6;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ij-summary__edit-btn:hover {
+  background-color: #f0f9ff;
+}
+
+/* ── Section Body (Plan Details) ──────────────── */
+
+.ij-summary__section-body {
+  background-color: #ffffff;
+  padding: 28px 28px 32px;
+  border-radius: 0 0 8px 8px;
+  border: 1px solid #e5e7eb;
+  border-top: none;
+}
+
+.ij-summary__plan-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ij-summary__details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 28px;
+  column-gap: 24px;
+}
+
+.ij-summary__detail-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ij-summary__detail-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.ij-summary__detail-value {
+  font-size: 15px;
+  color: #1a1a1a;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ij-summary__detail-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #4b5563;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+}
+
+/* ── Premium Bar ──────────────────────────────── */
+
+.ij-summary__premium-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 20px 28px;
+  margin-top: 2px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 2px;
+}
+
+.ij-summary__premium-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ij-summary__premium-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.ij-summary__premium-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0077b6;
+}
+
+.ij-summary__premium-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ij-summary__back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 28px;
+  background-color: #ffffff;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ij-summary__back-btn:hover {
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+.ij-summary__pay-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 36px;
+  background-color: #0077b6;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ij-summary__pay-btn:hover {
+  background-color: #005f91;
+}
+
+/* ── Personal Info ────────────────────────────── */
+
+.ij-summary__personal-section {
+  background-color: #ffffff;
+  padding: 28px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.ij-summary__personal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 28px;
+  column-gap: 24px;
+}
+
+.ij-summary__personal-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ij-summary__personal-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.ij-summary__personal-value {
+  font-size: 15px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* ── Payment Agreement ────────────────────────── */
+
+.ij-summary__agreement-section {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.ij-summary__agreement-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #0077b6;
+  padding: 14px 24px;
+  color: #ffffff;
+}
+
+.ij-summary__agreement-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.ij-summary__agreement-body {
+  background-color: #ffffff;
+  padding: 8px 24px 24px;
+}
+
+/* ── Consent Checkbox Items ───────────────────── */
+
+.ij-summary__consent-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.ij-summary__consent-item:last-child {
+  border-bottom: none;
+}
+
+.ij-summary__consent-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ij-summary__consent-checkmark {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.ij-summary__consent-checkbox:checked + .ij-summary__consent-checkmark {
+  background-color: #0077b6;
+  border-color: #0077b6;
+}
+
+.ij-summary__consent-checkbox:checked + .ij-summary__consent-checkmark::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  top: 2px;
+  left: 5px;
+}
+
+.ij-summary__consent-text {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.ij-summary__consent-link {
+  color: #0077b6;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.ij-summary__consent-link:hover {
+  color: #005f91;
+}
+
+/* ── Consent Error ────────────────────────────── */
+
+.ij-summary__consent-error {
+  margin-top: 16px;
+  padding: 10px 16px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ── Button Disabled State ────────────────────── */
+
+.ij-summary__pay-btn:disabled,
+.ij-summary__back-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Pay Later ────────────────────────────────── */
+
+.ij-summary__pay-later {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 40px;
+}
+
+.ij-summary__pay-later a {
+  color: #0077b6;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ── Disclaimer Footer ───────────────────────── */
+
+.ij-summary__disclaimer-section {
+  text-align: center;
+  padding: 32px 0 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.ij-summary__disclaimer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 24px;
+  background-color: #6b7280;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.ij-summary__disclaimer-btn:hover {
+  background-color: #4b5563;
+}
+
+.ij-summary__warning-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.ij-summary__warning-text {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto 20px;
+}
+
+.ij-summary__spurious-btn {
+  display: inline-block;
+  padding: 10px 28px;
+  background-color: #ffffff;
+  color: #0077b6;
+  border: 2px solid #0077b6;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.ij-summary__spurious-btn:hover {
+  background-color: #f0f9ff;
+}
+
+.ij-summary__footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.ij-summary__footer-link {
+  font-size: 12px;
+  color: #0077b6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ij-summary__footer-link:hover {
+  text-decoration: underline;
+}
+
+.ij-summary__footer-divider {
+  font-size: 12px;
+  color: #d1d5db;
+  margin: 0 2px;
+}
+
+/* ── Responsive ───────────────────────────────── */
+
+@media (max-width: 768px) {
+  .ij-summary__container {
+    padding: 24px 16px 0;
+  }
+
+  .ij-summary__page-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ij-summary__details-grid,
+  .ij-summary__personal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ij-summary__premium-bar {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .ij-summary__premium-actions {
+    width: 100%;
+  }
+
+  .ij-summary__back-btn,
+  .ij-summary__pay-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .ij-summary__details-grid,
+  .ij-summary__personal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ij-summary__premium-actions {
+    flex-direction: column;
+  }
+
+  .ij-summary__back-btn,
+  .ij-summary__pay-btn {
+    width: 100%;
+  }
+}

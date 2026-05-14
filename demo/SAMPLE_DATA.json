@@ -1,0 +1,341 @@
+{
+  "telecomSampleData": {
+    "services": [
+      {
+        "r_serviceId_serviceId": "SRV001",
+        "serviceName": "Basic Voice Plan",
+        "description": "Unlimited local calls with 100 SMS/day",
+        "price": 299,
+        "validity": "30 days",
+        "dataLimit": "0 GB",
+        "voiceLimit": "Unlimited",
+        "smsLimit": "100/day",
+        "planType": "Voice Only",
+        "status": "Active"
+      },
+      {
+        "r_serviceId_serviceId": "SRV002",
+        "serviceName": "Standard Data Plan",
+        "description": "Unlimited calls with 2GB data and 200 SMS",
+        "price": 499,
+        "validity": "30 days",
+        "dataLimit": "2 GB",
+        "voiceLimit": "Unlimited",
+        "smsLimit": "200/day",
+        "planType": "Voice + Data",
+        "status": "Active"
+      },
+      {
+        "r_serviceId_serviceId": "SRV003",
+        "serviceName": "Premium Unlimited Plan",
+        "description": "Unlimited everything - calls, SMS, data + OTT access",
+        "price": 799,
+        "validity": "30 days",
+        "dataLimit": "Unlimited",
+        "voiceLimit": "Unlimited",
+        "smsLimit": "Unlimited",
+        "planType": "All Inclusive",
+        "status": "Active"
+      },
+      {
+        "r_serviceId_serviceId": "SRV004",
+        "serviceName": "Business Plan",
+        "description": "Dedicated customer support, 5GB data, priority network",
+        "price": 1299,
+        "validity": "30 days",
+        "dataLimit": "5 GB",
+        "voiceLimit": "Unlimited",
+        "smsLimit": "Unlimited",
+        "planType": "Business",
+        "status": "Active"
+      },
+      {
+        "r_serviceId_serviceId": "SRV005",
+        "serviceName": "Senior Citizen Plan",
+        "description": "Special plan with 24/7 support and discounted rates",
+        "price": 199,
+        "validity": "30 days",
+        "dataLimit": "0.5 GB",
+        "voiceLimit": "500 minutes",
+        "smsLimit": "50/day",
+        "planType": "Special",
+        "status": "Active"
+      }
+    ],
+    "customers": [
+      {
+        "r_customerId_customerId": "CUST001",
+        "customerName": "Rajesh Kumar",
+        "email": "rajesh.kumar@email.com",
+        "phone": "9876543210",
+        "alternatePhone": "8765432109",
+        "address": "42 MG Road, Bangalore, Karnataka 560001",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "zipCode": "560001",
+        "accountStatus": "Active",
+        "registrationDate": "2024-01-15",
+        "creditLimit": 10000
+      },
+      {
+        "r_customerId_customerId": "CUST002",
+        "customerName": "Priya Sharma",
+        "email": "priya.sharma@email.com",
+        "phone": "9123456789",
+        "alternatePhone": "8987654321",
+        "address": "15 Park Street, Mumbai, Maharashtra 400001",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "zipCode": "400001",
+        "accountStatus": "Active",
+        "registrationDate": "2024-02-20",
+        "creditLimit": 15000
+      },
+      {
+        "r_customerId_customerId": "CUST003",
+        "customerName": "Amit Patel",
+        "email": "amit.patel@business.com",
+        "phone": "9654321098",
+        "alternatePhone": "8765432198",
+        "address": "Suite 201, Tech Park, Ahmedabad, Gujarat 380001",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "zipCode": "380001",
+        "accountStatus": "Active",
+        "registrationDate": "2024-03-10",
+        "creditLimit": 20000
+      },
+      {
+        "r_customerId_customerId": "CUST004",
+        "customerName": "Neha Singh",
+        "email": "neha.singh@email.com",
+        "phone": "9234567890",
+        "alternatePhone": "8765432210",
+        "address": "Flat 5B, Lotus Towers, Delhi, Delhi 110001",
+        "city": "Delhi",
+        "state": "Delhi",
+        "zipCode": "110001",
+        "accountStatus": "Active",
+        "registrationDate": "2024-01-25",
+        "creditLimit": 12000
+      },
+      {
+        "r_customerId_customerId": "CUST005",
+        "customerName": "Vikram Reddy",
+        "email": "vikram.reddy@email.com",
+        "phone": "9456123789",
+        "alternatePhone": "8765321098",
+        "address": "123 Oasis, Hyderabad, Telangana 500001",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "zipCode": "500001",
+        "accountStatus": "Active",
+        "registrationDate": "2024-02-14",
+        "creditLimit": 18000
+      }
+    ],
+    "orders": [
+      {
+        "r_orderId_orderId": "ORD001",
+        "customerId": "CUST001",
+        "serviceId": "SRV001",
+        "orderDate": "2024-03-01",
+        "activationDate": "2024-03-01",
+        "orderAmount": 299,
+        "quantity": 1,
+        "status": "Active",
+        "paymentMethod": "Credit Card",
+        "billingCycle": "Monthly"
+      },
+      {
+        "r_orderId_orderId": "ORD002",
+        "customerId": "CUST002",
+        "serviceId": "SRV002",
+        "orderDate": "2024-02-28",
+        "activationDate": "2024-02-28",
+        "orderAmount": 499,
+        "quantity": 1,
+        "status": "Active",
+        "paymentMethod": "Debit Card",
+        "billingCycle": "Monthly"
+      },
+      {
+        "r_orderId_orderId": "ORD003",
+        "customerId": "CUST003",
+        "serviceId": "SRV004",
+        "orderDate": "2024-03-05",
+        "activationDate": "2024-03-05",
+        "orderAmount": 1299,
+        "quantity": 1,
+        "status": "Active",
+        "paymentMethod": "Bank Transfer",
+        "billingCycle": "Monthly"
+      },
+      {
+        "r_orderId_orderId": "ORD004",
+        "customerId": "CUST004",
+        "serviceId": "SRV003",
+        "orderDate": "2024-03-10",
+        "activationDate": "2024-03-10",
+        "orderAmount": 799,
+        "quantity": 1,
+        "status": "Active",
+        "paymentMethod": "Net Banking",
+        "billingCycle": "Monthly"
+      },
+      {
+        "r_orderId_orderId": "ORD005",
+        "customerId": "CUST005",
+        "serviceId": "SRV002",
+        "orderDate": "2024-03-12",
+        "activationDate": "2024-03-12",
+        "orderAmount": 499,
+        "quantity": 1,
+        "status": "Active",
+        "paymentMethod": "Credit Card",
+        "billingCycle": "Monthly"
+      },
+      {
+        "r_orderId_orderId": "ORD006",
+        "customerId": "CUST001",
+        "serviceId": "SRV005",
+        "orderDate": "2024-03-08",
+        "activationDate": "2024-03-08",
+        "orderAmount": 199,
+        "quantity": 1,
+        "status": "Active",
+        "paymentMethod": "UPI",
+        "billingCycle": "Monthly"
+      }
+    ],
+    "invoices": [
+      {
+        "r_invoiceId_invoiceId": "INV001",
+        "orderId": "ORD001",
+        "customerId": "CUST001",
+        "invoiceAmount": 299,
+        "taxAmount": 44.85,
+        "totalAmount": 343.85,
+        "invoiceDate": "2024-03-01",
+        "dueDate": "2024-03-15",
+        "status": "Paid",
+        "paymentDate": "2024-03-12",
+        "paymentMethod": "Credit Card",
+        "remarks": "March billing cycle"
+      },
+      {
+        "r_invoiceId_invoiceId": "INV002",
+        "orderId": "ORD002",
+        "customerId": "CUST002",
+        "invoiceAmount": 499,
+        "taxAmount": 74.85,
+        "totalAmount": 573.85,
+        "invoiceDate": "2024-02-28",
+        "dueDate": "2024-03-12",
+        "status": "Paid",
+        "paymentDate": "2024-03-10",
+        "paymentMethod": "Debit Card",
+        "remarks": "March billing cycle"
+      },
+      {
+        "r_invoiceId_invoiceId": "INV003",
+        "orderId": "ORD003",
+        "customerId": "CUST003",
+        "invoiceAmount": 1299,
+        "taxAmount": 194.85,
+        "totalAmount": 1493.85,
+        "invoiceDate": "2024-03-05",
+        "dueDate": "2024-03-20",
+        "status": "Paid",
+        "paymentDate": "2024-03-18",
+        "paymentMethod": "Bank Transfer",
+        "remarks": "Business plan - March billing"
+      },
+      {
+        "r_invoiceId_invoiceId": "INV004",
+        "orderId": "ORD004",
+        "customerId": "CUST004",
+        "invoiceAmount": 799,
+        "taxAmount": 119.85,
+        "totalAmount": 918.85,
+        "invoiceDate": "2024-03-10",
+        "dueDate": "2024-03-25",
+        "status": "Pending",
+        "paymentDate": null,
+        "paymentMethod": "Net Banking",
+        "remarks": "Premium plan - March billing"
+      },
+      {
+        "r_invoiceId_invoiceId": "INV005",
+        "orderId": "ORD005",
+        "customerId": "CUST005",
+        "invoiceAmount": 499,
+        "taxAmount": 74.85,
+        "totalAmount": 573.85,
+        "invoiceDate": "2024-03-12",
+        "dueDate": "2024-03-27",
+        "status": "Pending",
+        "paymentDate": null,
+        "paymentMethod": "Credit Card",
+        "remarks": "Standard plan - March billing"
+      },
+      {
+        "r_invoiceId_invoiceId": "INV006",
+        "orderId": "ORD006",
+        "customerId": "CUST001",
+        "invoiceAmount": 199,
+        "taxAmount": 29.85,
+        "totalAmount": 228.85,
+        "invoiceDate": "2024-03-08",
+        "dueDate": "2024-03-22",
+        "status": "Paid",
+        "paymentDate": "2024-03-20",
+        "paymentMethod": "UPI",
+        "remarks": "Senior citizen plan - March billing"
+      }
+    ],
+    "relationships": {
+      "CUST001": {
+        "orders": ["ORD001", "ORD006"],
+        "invoices": ["INV001", "INV006"],
+        "totalSpend": 572.70
+      },
+      "CUST002": {
+        "orders": ["ORD002"],
+        "invoices": ["INV002"],
+        "totalSpend": 573.85
+      },
+      "CUST003": {
+        "orders": ["ORD003"],
+        "invoices": ["INV003"],
+        "totalSpend": 1493.85
+      },
+      "CUST004": {
+        "orders": ["ORD004"],
+        "invoices": ["INV004"],
+        "totalSpend": 918.85
+      },
+      "CUST005": {
+        "orders": ["ORD005"],
+        "invoices": ["INV005"],
+        "totalSpend": 573.85
+      }
+    },
+    "summary": {
+      "totalServices": 5,
+      "totalCustomers": 5,
+      "totalOrders": 6,
+      "totalInvoices": 6,
+      "totalRevenue": 4132.95,
+      "paidInvoices": 4,
+      "pendingInvoices": 2,
+      "telecomServices": {
+        "voiceOnlyPlans": 1,
+        "voiceDataPlans": 1,
+        "businessPlans": 1,
+        "specialPlans": 1,
+        "unlimitedPlans": 1
+      }
+    }
+  }
+}

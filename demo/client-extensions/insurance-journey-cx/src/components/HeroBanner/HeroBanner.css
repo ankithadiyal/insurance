@@ -1,0 +1,50 @@
+/* ──────────────────────────────────────────────
+   HeroBanner Styles
+   Left-side promotional banner with carousel dots.
+   ────────────────────────────────────────────── */
+
+.ij-hero-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* ── Image wrapper ──────────────────────────── */
+
+.ij-hero-banner__image-wrapper {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ij-hero-banner__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ── Carousel dots ──────────────────────────── */
+
+.ij-hero-banner__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.ij-hero-banner__dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  transition: background-color 0.2s ease;
+}
+
+.ij-hero-banner__dot--active {
+  background-color: #0056a6;
+}

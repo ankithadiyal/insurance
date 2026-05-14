@@ -1,0 +1,120 @@
+/* ──────────────────────────────────────────────
+   OtpVerificationModal Styles
+   ────────────────────────────────────────────── */
+
+.ij-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.ij-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 48px 40px 40px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+/* ── Close Button ───────────────────────────── */
+
+.ij-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: #f3f4f6;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ij-modal-close:hover {
+  background-color: #e5e7eb;
+  color: #1a1a1a;
+}
+
+/* ── Typography ─────────────────────────────── */
+
+.ij-modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.ij-modal-subtitle {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.ij-modal-number {
+  display: block;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 4px;
+}
+
+.ij-modal-resend {
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 32px;
+}
+
+.ij-modal-link {
+  color: #0056a6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ij-modal-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Submit Button ──────────────────────────── */
+
+.ij-modal-submit {
+  display: block;
+  width: 100%;
+  max-width: 160px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background-color: #d1d5db;
+  color: #ffffff;
+  cursor: not-allowed;
+  transition: all 0.2s ease;
+}
+
+.ij-modal-submit--active {
+  background-color: #0077b6;
+  cursor: pointer;
+}
+
+.ij-modal-submit--active:hover {
+  background-color: #005f91;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}

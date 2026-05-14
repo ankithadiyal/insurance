@@ -1,0 +1,61 @@
+/* ──────────────────────────────────────────────
+   BannerCarousel Styles
+   ────────────────────────────────────────────── */
+
+.ij-banner-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.ij-banner-carousel__wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid #0056a6; /* Curved blue line border from design */
+  background-color: #ffffff;
+}
+
+.ij-banner-carousel__track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+.ij-banner-carousel__slide {
+  min-width: 100%;
+  height: auto; /* Allow natural height */
+}
+
+.ij-banner-carousel__img {
+  width: 100%;
+  height: auto; /* Prevent cutting/stretching */
+  object-fit: cover;
+  display: block;
+}
+
+/* Indicators below the banner */
+.ij-banner-carousel__indicators {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.ij-banner-carousel__dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #d1d5db; /* Grey dot */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+.ij-banner-carousel__dot.active {
+  background-color: #0056a6; /* Active blue dot */
+}

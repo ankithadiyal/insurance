@@ -1,0 +1,113 @@
+/* ──────────────────────────────────────────────
+   StickyRateSection Styles
+   ────────────────────────────────────────────── */
+
+.ij-sticky-rate {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -4px 6px -1px #0000000d;
+  padding: 30px 0;
+  margin-top: 24px;
+}
+
+.ij-sticky-rate__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ij-sticky-rate__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ij-sticky-rate__label-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ij-sticky-rate__label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.ij-sticky-rate__prices {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.ij-sticky-rate__current {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0077b6;
+}
+
+.ij-sticky-rate__original {
+  font-size: 14px;
+  color: #ef4444;
+  text-decoration: line-through;
+}
+
+.ij-sticky-rate__frequency {
+  font-size: 12px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.ij-sticky-rate__sub-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.ij-sticky-rate__sub-text {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.ij-sticky-rate__breakup-btn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  color: #0056a6;
+  text-decoration: underline;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ij-sticky-rate__proceed-btn {
+  padding: 10px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #0077b6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ij-sticky-rate__proceed-btn:hover {
+  background-color: #005f91;
+}
+
+/* ── Responsive ─────────────────────────────── */
+
+@media (max-width: 640px) {
+  .ij-sticky-rate__container {
+    padding: 0 16px;
+  }
+  .ij-sticky-rate__proceed-btn {
+    padding: 8px 24px;
+    font-size: 14px;
+  }
+}

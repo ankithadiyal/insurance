@@ -1,0 +1,137 @@
+/* ──────────────────────────────────────────────
+   HelpUsKnowYouBetter Section Styles
+   Two-column layout: banner (left) + form (right)
+   matching the PNB MetLife Step 1 design.
+   ────────────────────────────────────────────── */
+
+/* ── Section wrapper ────────────────────────── */
+
+.ij-form-section {
+  background-color: #f5f7fa;
+  padding: 0;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ── Two-column container ───────────────────── */
+
+.ij-form-section__container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* ── Banner column (left) ───────────────────── */
+
+.ij-form-section__banner-col {
+  flex: 0 0 46%;
+  max-width: 46%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb;
+  padding: 24px 16px;
+}
+
+/* ── Form column (right) ────────────────────── */
+
+.ij-form-section__form-col {
+  flex: 1;
+  padding: 32px 36px 36px;
+  overflow-y: auto;
+}
+
+/* ── Section title ──────────────────────────── */
+
+.ij-form-section__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ── Form reset ─────────────────────────────── */
+
+.ij-form-section__form {
+  /* no additional resets needed */
+}
+
+/* ── Submit button ──────────────────────────── */
+
+.ij-form-section__submit-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0056a6 0%, #003d73 100%);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 0.3px;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+}
+
+.ij-form-section__submit-btn:hover {
+  background: linear-gradient(135deg, #004690 0%, #002f5e 100%);
+  box-shadow: 0 4px 14px rgba(0, 86, 166, 0.35);
+}
+
+.ij-form-section__submit-btn:active {
+  transform: translateY(1px);
+}
+
+.ij-form-section__submit-btn:focus-visible {
+  outline: 2px solid #0056a6;
+  outline-offset: 2px;
+}
+
+.ij-form-section__submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ────────────────────────────────────────────── 
+   Responsive
+   ────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .ij-form-section__container {
+    flex-direction: column;
+  }
+
+  .ij-form-section__banner-col {
+    flex: none;
+    max-width: 100%;
+    padding: 20px 16px;
+  }
+
+  .ij-form-section__form-col {
+    padding: 24px 20px 28px;
+  }
+
+  .ij-form-section__title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ij-form-section__form-col {
+    padding: 20px 16px 24px;
+  }
+
+  .ij-form-section__submit-btn {
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+}

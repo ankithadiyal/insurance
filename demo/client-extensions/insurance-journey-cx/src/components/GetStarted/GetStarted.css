@@ -1,0 +1,120 @@
+/* ──────────────────────────────────────────────
+   GetStarted Section Styles
+   ────────────────────────────────────────────── */
+
+.ij-get-started {
+  background-color: #f5f7fa;
+  padding: 0;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.ij-get-started__container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.ij-get-started__banner-col {
+  flex: 0 0 46%;
+  max-width: 46%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb;
+  padding: 24px 16px;
+}
+
+.ij-get-started__disclaimer {
+  font-size: 10px;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 80%;
+  line-height: 1.4;
+}
+
+.ij-get-started__form-col {
+  flex: 1;
+  padding: 40px 36px;
+}
+
+.ij-get-started__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.ij-get-started__title sup {
+  font-size: 14px;
+  top: -0.5em;
+}
+
+/* ── Gender Row ─────────────────────────────── */
+
+.ij-get-started__gender-row {
+  margin-bottom: 24px;
+}
+
+.ij-get-started__gender-row .ij-toggle-group__options {
+  justify-content: center;
+}
+
+.ij-get-started__gender-row .ij-toggle-group__btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 25px;
+  border: 1px solid #0077b6;
+  color: #0077b6;
+  background-color: #ffffff;
+}
+
+.ij-get-started__gender-row .ij-toggle-group__btn--selected {
+  background-color: #0077b6;
+  color: #ffffff;
+}
+
+.ij-get-started__gender-row .ij-toggle-group__btn:hover:not(.ij-toggle-group__btn--selected) {
+  background-color: #f0f9ff;
+}
+
+/* ── Submit button ──────────────────────────── */
+
+.ij-get-started__submit-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #0077b6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ij-get-started__submit-btn:hover {
+  background-color: #005f91;
+}
+
+/* ── Responsive ─────────────────────────────── */
+
+@media (max-width: 768px) {
+  .ij-get-started__container {
+    flex-direction: column;
+  }
+  .ij-get-started__banner-col,
+  .ij-get-started__form-col {
+    max-width: 100%;
+    flex: none;
+  }
+}

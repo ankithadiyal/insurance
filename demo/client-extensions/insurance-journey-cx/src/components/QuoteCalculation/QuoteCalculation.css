@@ -1,0 +1,212 @@
+/* ──────────────────────────────────────────────
+   QuoteCalculation Page Styles
+   ────────────────────────────────────────────── */
+
+.ij-quote-page {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ij-quote-page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.ij-quote-page__content {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ── Sidebar ────────────────────────────────── */
+
+.ij-quote-page__sidebar {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ij-quote-page__testimonial {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ij-quote-page__stars {
+  color: #fca311;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.ij-quote-page__testimonial p {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.ij-quote-page__user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ij-quote-page__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0077b6;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ij-quote-page__user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ij-quote-page__user-info strong {
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.ij-quote-page__user-info span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ── Main Area ──────────────────────────────── */
+
+.ij-quote-page__main {
+  flex: 1;
+}
+
+/* ── Features ───────────────────────────────── */
+
+.ij-quote-page__features {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32px;
+}
+
+.ij-quote-page__feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ij-quote-page__feature-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #009688;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.ij-quote-page__feature-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ij-quote-page__feature-text strong {
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.ij-quote-page__feature-text span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ── Trust Stats ────────────────────────────── */
+
+.ij-quote-page__trust {
+  margin-bottom: 64px; /* Space for sticky bar */
+}
+
+.ij-quote-page__trust-header {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ij-quote-page__trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.ij-quote-page__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ij-quote-page__trust-check {
+  color: #009688;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.ij-quote-page__trust-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ij-quote-page__trust-content strong {
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+.ij-quote-page__trust-content span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ── Responsive ─────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .ij-quote-page__content {
+    flex-direction: column;
+  }
+  .ij-quote-page__sidebar {
+    width: 100%;
+    flex: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .ij-quote-page__trust-grid {
+    grid-template-columns: 1fr;
+  }
+  .ij-quote-page__features {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

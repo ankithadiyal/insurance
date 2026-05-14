@@ -1,0 +1,79 @@
+/* ──────────────────────────────────────────────
+   QuoteHero Styles
+   ────────────────────────────────────────────── */
+
+.ij-quote-hero {
+  background: linear-gradient(180deg, #0096da 0%, #0077b6 100%);
+  border-radius: 8px;
+  padding: 16px 24px;
+  color: #ffffff;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ij-quote-hero__settlement {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px;
+  margin: -16px -24px 24px;
+}
+
+.ij-quote-hero__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.ij-quote-hero__amount-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ij-quote-hero__icon {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ij-quote-hero__amount {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1;
+}
+
+.ij-quote-hero__label {
+  font-size: 14px;
+  margin: 4px 0 0;
+  opacity: 0.9;
+}
+
+.ij-quote-hero__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  background-color: #fca311;
+  color: #1a1a1a;
+  padding: 8px 16px;
+  margin: 16px -24px -16px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ij-quote-hero__star {
+  margin-right: 6px;
+}
+
+.ij-quote-hero__know-more {
+  background: none;
+  border: none;
+  font-weight: 700;
+  color: #1a1a1a;
+  cursor: pointer;
+  text-decoration: underline;
+}

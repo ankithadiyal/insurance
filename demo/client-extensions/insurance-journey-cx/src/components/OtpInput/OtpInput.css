@@ -1,0 +1,29 @@
+/* ──────────────────────────────────────────────
+   OtpInput Styles
+   ────────────────────────────────────────────── */
+
+.ij-otp-input {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ij-otp-input__box {
+  width: 44px;
+  height: 52px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ij-otp-input__box:focus {
+  border-color: #0056a6;
+  box-shadow: 0 0 0 3px rgba(0, 86, 166, 0.1);
+}

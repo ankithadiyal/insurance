@@ -1,0 +1,23 @@
+assemble:
+    - from: vite-build
+      into: static
+
+# This is the import map entry so you can import the custom element in a custom fragment
+insurance-journey-cx:
+    bareSpecifier: insurance-journey-cx
+    name: insurance-journey-cx
+    type: jsImportMapsEntry
+    url: assets/index.js
+
+# This is the custom element definition
+insurance-journey-cx-element:
+    friendlyURLMapping: insurance-journey-cx
+    htmlElementName: insurance-journey-cx
+    instanceable: false
+    name: insurance-journey-cx
+    portletCategoryName: category.client-extensions
+    type: customElement
+    urls:
+        - assets/*.js
+    useESM: true
+    liferay.virtual.instance.id: default

@@ -1,0 +1,129 @@
+/* ──────────────────────────────────────────────
+   PaymentOptions Styles
+   ────────────────────────────────────────────── */
+
+.ij-payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.ij-payment-options__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.ij-payment-options__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ── Payment Card ───────────────────────────── */
+
+.ij-payment-card {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 21px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  gap: 12px;
+}
+
+.ij-payment-card:hover {
+  border-color: #0077b6;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.ij-payment-card--selected {
+  border-color: #0077b6;
+  background-color: #f0f9ff;
+  border-width: 2px;
+  padding: 15px; /* adjust for border width */
+}
+
+.ij-payment-card__radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ij-payment-card--selected .ij-payment-card__radio {
+  border-color: #0077b6;
+}
+
+.ij-payment-card__radio-inner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #0077b6;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.ij-payment-card--selected .ij-payment-card__radio-inner {
+  opacity: 1;
+}
+
+.ij-payment-card__content {
+  flex: 1;
+}
+
+.ij-payment-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ij-payment-card__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.ij-payment-card__badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #10b981;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.ij-payment-card__duration {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.ij-payment-card__price-group {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.ij-payment-card__price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.ij-payment-card__save {
+  font-size: 11px;
+  font-weight: 600;
+  color: #10b981;
+  margin-top: 2px;
+}
