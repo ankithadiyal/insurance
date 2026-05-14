@@ -191,8 +191,12 @@ const BillDeskLogo = () => (
 );
 
 /* ── Component ─────────────────────────────────────────────────────── */
+/* ── Component ─────────────────────────────────────────────────────── */
 function BillDeskModal({ isOpen, onClose, amount, orderId }) {
   const [copied, setCopied] = useState(false);
+  const [paymentView, setPaymentView] = useState("methods"); // "methods" | "upi-input" | "upi-countdown" | "success"
+  const [upiId, setUpiId] = useState("");
+  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes
 
   if (!isOpen) return null;
 
@@ -203,6 +207,38 @@ function BillDeskModal({ isOpen, onClose, amount, orderId }) {
     navigator.clipboard?.writeText(displayOrderId).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
+  };
+
+  const handleUpiClick = () => {
+    setPaymentView("upi-input");
+  };
+
+  const handleNext = () => {
+    if (upiId.trim()) {
+      setPaymentView("upi-countdown");
+      // Start 5 min countdown
+      const timer = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      // Auto-success after 5 seconds for demo
+      setTimeout(() => {
+        clearInterval(timer);
+        setPaymentView("success");
+      }, 5000);
+    }
+  };
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
   const paymentMethods = [
@@ -234,6 +270,7 @@ function BillDeskModal({ isOpen, onClose, amount, orderId }) {
       logos: [<PhonePeIcon key="pp" />, <GpayIcon key="gp" />, <PaytmIcon key="pt" />],
       expandable: false,
       isUpi: true,
+      onClick: handleUpiClick,
     },
     {
       id: "wallets",
@@ -244,13 +281,106 @@ function BillDeskModal({ isOpen, onClose, amount, orderId }) {
     },
   ];
 
+  const renderContent = () => {
+    switch (paymentView) {
+      case "upi-input":
+        return (
+          <div className="bd-upi-input-view">
+            <h3 className="bd-section-title">Enter UPI ID</h3>
+            <div className="bd-input-group">
+              <input
+                type="text"
+                className="bd-upi-field"
+                placeholder="example@upi"
+                value={upiId}
+                onChange={(e) => setUpiId(e.target.value)}
+                autoFocus
+              />
+              <button className="bd-next-btn" onClick={handleNext} disabled={!upiId}>
+                Next
+              </button>
+            </div>
+            <p className="bd-upi-hint">Enter your VPA (e.g. name@bank)</p>
+          </div>
+        );
+      case "upi-countdown":
+        return (
+          <div className="bd-countdown-view">
+            <div className="bd-loader-circle" />
+            <h3 className="bd-countdown-title">Requesting Payment</h3>
+            <p className="bd-countdown-text">Please accept the request in your UPI app</p>
+            <div className="bd-timer">
+              <span className="bd-timer-label">Expires in</span>
+              <span className="bd-timer-value">{formatTime(timeLeft)}</span>
+            </div>
+          </div>
+        );
+      case "success":
+        return (
+          <div className="bd-success-view">
+            <div className="bd-success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h3 className="bd-success-title">Payment Successful!</h3>
+            <p className="bd-success-text">Your transaction has been processed.</p>
+            <div className="bd-success-details">
+              <div className="bd-success-row">
+                <span>Order ID</span>
+                <strong>{displayOrderId}</strong>
+              </div>
+              <div className="bd-success-row">
+                <span>Amount Paid</span>
+                <strong>₹{amount}</strong>
+              </div>
+            </div>
+            <button className="bd-finish-btn" onClick={onClose}>Finish</button>
+          </div>
+        );
+      default:
+        return (
+          <>
+            <h3 className="bd-section-title">Payment Methods</h3>
+            <div className="bd-methods-list">
+              {paymentMethods.map((method) => (
+                <div key={method.id} className="bd-method-item" onClick={method.onClick}>
+                  <div className="bd-method-left">
+                    {method.isUpi ? (
+                      <>
+                        <span className="bd-method-icon"><UpiLogo /></span>
+                        <div className="bd-method-logos">{method.logos}</div>
+                      </>
+                    ) : (
+                      <>
+                        <span className="bd-method-icon">{method.icon}</span>
+                        <span className="bd-method-label">{method.label}</span>
+                        <div className="bd-method-logos">{method.logos}</div>
+                      </>
+                    )}
+                  </div>
+                  <div className="bd-method-right">
+                    {method.expandable ? <ChevronDown /> : <ChevronRight />}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        );
+    }
+  };
+
   return (
     <div className="bd-overlay">
       <div className="bd-modal">
 
         {/* Header */}
         <div className="bd-header">
-          <button className="bd-back-btn" onClick={onClose} aria-label="Go back">
+          <button 
+            className="bd-back-btn" 
+            onClick={() => paymentView === "methods" ? onClose() : setPaymentView("methods")} 
+            aria-label="Go back"
+          >
             <ChevronLeft />
           </button>
           <div className="bd-merchant">
@@ -282,32 +412,9 @@ function BillDeskModal({ isOpen, onClose, amount, orderId }) {
           </div>
         </div>
 
-        {/* Payment Methods */}
+        {/* Dynamic Content */}
         <div className="bd-content">
-          <h3 className="bd-section-title">Payment Methods</h3>
-          <div className="bd-methods-list">
-            {paymentMethods.map((method) => (
-              <div key={method.id} className="bd-method-item">
-                <div className="bd-method-left">
-                  {method.isUpi ? (
-                    <>
-                      <span className="bd-method-icon"><UpiLogo /></span>
-                      <div className="bd-method-logos">{method.logos}</div>
-                    </>
-                  ) : (
-                    <>
-                      <span className="bd-method-icon">{method.icon}</span>
-                      <span className="bd-method-label">{method.label}</span>
-                      <div className="bd-method-logos">{method.logos}</div>
-                    </>
-                  )}
-                </div>
-                <div className="bd-method-right">
-                  {method.expandable ? <ChevronDown /> : <ChevronRight />}
-                </div>
-              </div>
-            ))}
-          </div>
+          {renderContent()}
         </div>
 
         {/* Footer */}

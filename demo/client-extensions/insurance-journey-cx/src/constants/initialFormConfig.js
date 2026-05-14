@@ -32,7 +32,7 @@ export const DOB_FIELD = {
   id: 'dateOfBirth',
   label: 'Date of Birth',
   required: true,
-  type: 'date',
+  type: 'text',
   placeholder: 'DD/MM/YYYY',
 };
 
