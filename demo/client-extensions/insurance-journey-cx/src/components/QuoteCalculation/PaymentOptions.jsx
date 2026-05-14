@@ -40,15 +40,19 @@ function PaymentOptions({ selectedId, options, onSelect }) {
 
   return (
     <div className="ij-payment-options">
-      <div className="ij-payment-options__section">
-        <h4 className="ij-payment-options__title">{paymentOptions.regularPay.title}</h4>
-        {(options?.regular || []).map(renderOption)}
-      </div>
+      <div className="ij-payment-options__card">
+        <div className="ij-payment-options__section">
+          <h4 className="ij-payment-options__title">{paymentOptions.regularPay.title}</h4>
+          {(options?.regular || []).map(renderOption)}
+        </div>
 
-      <div className="ij-payment-options__section">
-        <h4 className="ij-payment-options__title">{paymentOptions.limitedPay.title}</h4>
-        <div className="ij-payment-options__grid">
-          {(options?.limited || []).map(renderOption)}
+        <div className="ij-payment-options__divider" />
+
+        <div className="ij-payment-options__section">
+          <h4 className="ij-payment-options__title">{paymentOptions.limitedPay.title}</h4>
+          <div className="ij-payment-options__grid">
+            {(options?.limited || []).map(renderOption)}
+          </div>
         </div>
       </div>
     </div>

@@ -3,10 +3,23 @@
    ────────────────────────────────────────────── */
 
 .ij-payment-options {
+  margin-bottom: 40px;
+}
+
+.ij-payment-options__card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  margin-bottom: 40px;
+  gap: 24px;
+}
+
+.ij-payment-options__divider {
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: 8px 0;
 }
 
 .ij-payment-options__title {
