@@ -105,7 +105,6 @@ function ProtectionForm({ values, onUpdate, age }) {
   // 3. Payment Frequency Options
   const frequencyOptions = [
     { value: 'Monthly', label: 'Monthly' },
-    { value: 'Quarterly', label: 'Quarterly' },
     { value: 'Yearly', label: 'Yearly', badge: 'Save 4.2%' },
   ];
 

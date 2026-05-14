@@ -21,18 +21,16 @@ import './QuoteCalculation.css';
  * These can be moved to page configuration in the future.
  */
 const PREMIUM_CONFIG = {
-  baseRate: 0.15,         // Base rate per 1000 SA
-  ageLoading: 0.012,      // 1.2% increase per year of age
-  smokerLoading: 1.6,     // 60% extra for smokers
-  femaleDiscount: 0.9,    // 10% discount for females
-  limitedPayDiscount: 0.85, // 15% discount for paying early
-  
-  // Term Formula Parameters: F(term) = 1 + (Term - Offset) / Divisor
-  termOffset: 20,         
+  baseRate: 1.0,          
+  ageFactor: 0.04,        
+  monthlyLoading: 1.15,   
+  smokerLoading: 1.6,
+  femaleDiscount: 0.9,
+  limitedPayDiscount: 0.85,
+  termOffset: 29,         
   termDivisor: 100,
 
-  // Human-readable formula for the UI
-  formulaDescription: "Premium = Base Rate × (1 + (Policy Term - 20) / 100) × Risk Factors"
+  formulaDescription: "Premium = (SA/1000) * [Base + (Age-31)*Factor] * [1 + (Term-29)/100]"
 };
 
 function QuoteCalculation({ formData = {}, pageConfig = {}, onProceed }) {
@@ -62,34 +60,42 @@ function QuoteCalculation({ formData = {}, pageConfig = {}, onProceed }) {
   const calculateResult = (payTillAge) => {
     const paymentTerm = payTillAge - age;
     
-    // a. Base Rate based on age
-    let rate = CONFIG.baseRate + (age - 18) * CONFIG.ageLoading;
+    // a. Base Rate adjusted for age (Base 1.0 at age 31)
+    let rate = CONFIG.baseRate + (age - 31) * CONFIG.ageFactor;
     
     // b. Risk Multipliers
     if (isSmoker) rate *= CONFIG.smokerLoading;
     if (gender.toLowerCase() === 'female') rate *= CONFIG.femaleDiscount;
     
-    // c. APPLY FORMULA: F(term) = 1 + (Policy Term - Offset) / Divisor
+    // c. Term Factor: Adjusted around the 29-year base
     const termFactor = 1 + (policyTerm - CONFIG.termOffset) / CONFIG.termDivisor;
     
-    // d. Regular Annual Premium (Adjusted by your term factor)
-    const regularAnnual = (numericLifeCover / 1000) * rate * termFactor;
+    // d. Base Annual Premium
+    let annualPremium = (numericLifeCover / 1000) * rate * termFactor;
     
-    // d. Apply Limited Pay Adjustment
-    let finalAnnual = regularAnnual;
+    // e. Apply Limited Pay Adjustment if applicable
     let savings = 0;
-    
     if (paymentTerm < policyTerm) {
-      finalAnnual = (regularAnnual * (policyTerm / paymentTerm)) * CONFIG.limitedPayDiscount;
-      savings = (regularAnnual * policyTerm) - (finalAnnual * paymentTerm);
+      annualPremium = (annualPremium * (policyTerm / paymentTerm)) * CONFIG.limitedPayDiscount;
+      savings = (annualPremium * policyTerm) - (annualPremium * paymentTerm);
     }
 
-    const monthly = Math.round(finalAnnual / 12);
-    const total = Math.round(finalAnnual * paymentTerm);
+    // f. Frequency Loading (15% for monthly)
+    const isMonthly = paymentFrequency === 'Monthly';
+    const frequencyFactor = isMonthly ? CONFIG.monthlyLoading : 1.0;
+    
+    const installmentPremium = isMonthly 
+      ? Math.round((annualPremium / 12) * frequencyFactor)
+      : Math.round(annualPremium);
+
+    // g. Total Lifetime Pay
+    const totalLifetimePay = isMonthly
+      ? Math.round(installmentPremium * 12 * paymentTerm)
+      : Math.round(installmentPremium * paymentTerm);
     
     return { 
-      monthly, 
-      total,
+      installment: installmentPremium, 
+      total: totalLifetimePay,
       savings: Math.max(0, Math.round(savings)) 
     };
   };
@@ -100,20 +106,21 @@ function QuoteCalculation({ formData = {}, pageConfig = {}, onProceed }) {
     id: 'regular-pay',
     label: `Pay till age ${numericCoverTillAge}`,
     duration: `(For ${policyTerm} Years)`,
-    price: `${formatCurrency(regularRes.monthly)} Per Month`,
-    monthlyValue: regularRes.monthly
+    price: `${formatCurrency(regularRes.installment)} / ${paymentFrequency}`,
+    installmentValue: regularRes.installment,
+    totalValue: regularRes.total
   };
 
-  // Generate limited pay options (e.g., Pay for 10, 15, 20 years)
+  // Generate limited pay options
   const limitedAges = [age + 10, age + 15, age + 20].filter(a => a < numericCoverTillAge);
-  const limitedOptions = limitedAges.map((targetAge, idx) => {
+  const limitedOptions = limitedAges.map((targetAge) => {
     const res = calculateResult(targetAge);
     return {
       id: `limited-${targetAge}`,
       label: `Pay till age ${targetAge}`,
       duration: `(For ${targetAge - age} Years)`,
-      price: `${formatCurrency(res.monthly)} Per Month`,
-      monthlyValue: res.monthly,
+      price: `${formatCurrency(res.installment)} / ${paymentFrequency}`,
+      installmentValue: res.installment,
       totalValue: res.total
     };
   });
@@ -132,7 +139,11 @@ function QuoteCalculation({ formData = {}, pageConfig = {}, onProceed }) {
 
   const handleProceed = () => {
     // Pass everything back to App
-    if (onProceed) onProceed({ ...selections, monthlyPremium: activeOption.monthlyValue });
+    if (onProceed) onProceed({ 
+      ...selections, 
+      installmentPremium: activeOption.installmentValue,
+      totalPremium: activeOption.totalValue 
+    });
   };
 
   return (
@@ -182,7 +193,7 @@ function QuoteCalculation({ formData = {}, pageConfig = {}, onProceed }) {
       </div>
 
       <StickyRateSection 
-        price={formatCurrency(activeOption.monthlyValue)}
+        price={formatCurrency(activeOption.installmentValue)}
         frequency={paymentFrequency}
         onProceed={handleProceed} 
       />
