@@ -10,7 +10,7 @@ import {
 import { initiatePayment } from './services/billdesk';
 import './index.css';
 
-function App() {
+function App({ pageConfig = {} }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({});
   const [quoteSelections, setQuoteSelections] = useState({});
@@ -92,6 +92,7 @@ function App() {
       {currentStep === 3 && (
         <QuoteCalculation
           formData={formData}
+          pageConfig={pageConfig}
           onProceed={handleProceedFromStep3}
         />
       )}

@@ -35,8 +35,14 @@ const PREMIUM_CONFIG = {
   formulaDescription: "Premium = Base Rate × (1 + (Policy Term - 20) / 100) × Risk Factors"
 };
 
-function QuoteCalculation({ formData = {}, onProceed }) {
+function QuoteCalculation({ formData = {}, pageConfig = {}, onProceed }) {
   const { selections, updateSelection } = useQuote();
+
+  // MERGE Page Level Config with defaults
+  const CONFIG = {
+    ...PREMIUM_CONFIG,
+    ...pageConfig
+  };
 
   // 1. Derive user info
   const age = calculateAge(formData.dateOfBirth) || 30;
@@ -57,14 +63,14 @@ function QuoteCalculation({ formData = {}, onProceed }) {
     const paymentTerm = payTillAge - age;
     
     // a. Base Rate based on age
-    let rate = PREMIUM_CONFIG.baseRate + (age - 18) * PREMIUM_CONFIG.ageLoading;
+    let rate = CONFIG.baseRate + (age - 18) * CONFIG.ageLoading;
     
     // b. Risk Multipliers
-    if (isSmoker) rate *= PREMIUM_CONFIG.smokerLoading;
-    if (gender.toLowerCase() === 'female') rate *= PREMIUM_CONFIG.femaleDiscount;
+    if (isSmoker) rate *= CONFIG.smokerLoading;
+    if (gender.toLowerCase() === 'female') rate *= CONFIG.femaleDiscount;
     
     // c. APPLY FORMULA: F(term) = 1 + (Policy Term - Offset) / Divisor
-    const termFactor = 1 + (policyTerm - PREMIUM_CONFIG.termOffset) / PREMIUM_CONFIG.termDivisor;
+    const termFactor = 1 + (policyTerm - CONFIG.termOffset) / CONFIG.termDivisor;
     
     // d. Regular Annual Premium (Adjusted by your term factor)
     const regularAnnual = (numericLifeCover / 1000) * rate * termFactor;
@@ -74,7 +80,7 @@ function QuoteCalculation({ formData = {}, onProceed }) {
     let savings = 0;
     
     if (paymentTerm < policyTerm) {
-      finalAnnual = (regularAnnual * (policyTerm / paymentTerm)) * PREMIUM_CONFIG.limitedPayDiscount;
+      finalAnnual = (regularAnnual * (policyTerm / paymentTerm)) * CONFIG.limitedPayDiscount;
       savings = (regularAnnual * policyTerm) - (finalAnnual * paymentTerm);
     }
 
@@ -161,7 +167,7 @@ function QuoteCalculation({ formData = {}, onProceed }) {
 
           {/* Main Area */}
           <main className="ij-quote-page__main">
-            <QuoteHero />
+            <QuoteHero lifeCoverAmount={`₹ ${numericLifeCover / 10000000} Cr`} />
             
             <PaymentOptions 
               selectedId={selections.selectedPaymentOption} 
@@ -173,16 +179,6 @@ function QuoteCalculation({ formData = {}, onProceed }) {
             />
           </main>
         </div>
-      </div>
-
-      {/* Bottom Rate Section */}
-      <div className="ij-quote-page__formula-info">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-          <path d="M12 16V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-          <path d="M12 8H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        </svg>
-        <span>Calculation logic: {PREMIUM_CONFIG.formulaDescription}</span>
       </div>
 
       <StickyRateSection 

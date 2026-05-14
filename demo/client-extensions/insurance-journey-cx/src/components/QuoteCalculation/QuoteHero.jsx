@@ -8,7 +8,7 @@ import React from 'react';
 import { QUOTE_CONFIG } from '../../constants';
 import './QuoteHero.css';
 
-function QuoteHero() {
+function QuoteHero({ lifeCoverAmount }) {
   const { hero } = QUOTE_CONFIG;
 
   return (
@@ -25,7 +25,7 @@ function QuoteHero() {
             </svg>
           </div>
           <div className="ij-quote-hero__text">
-            <h1 className="ij-quote-hero__amount">{hero.lifeCoverAmount}</h1>
+            <h1 className="ij-quote-hero__amount">{lifeCoverAmount || hero.lifeCoverAmount}</h1>
             <p className="ij-quote-hero__label">{hero.lifeCoverLabel}</p>
           </div>
         </div>

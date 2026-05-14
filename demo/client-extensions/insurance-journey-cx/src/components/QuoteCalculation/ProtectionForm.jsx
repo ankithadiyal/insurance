@@ -19,14 +19,16 @@ function ProtectionForm({ values, onUpdate }) {
         <label className="ij-protection-form__label">
           {protectionForm.lifeCover.label} <span className="ij-protection-form__required">*</span>
         </label>
-        <div className="ij-protection-form__input-wrapper">
-          <input
-            type="text"
-            className="ij-protection-form__input"
+        <div className="ij-protection-form__select-wrapper">
+          <select
+            className="ij-protection-form__select"
             value={values.lifeCover}
             onChange={(e) => onUpdate('lifeCover', e.target.value)}
-          />
-          <span className="ij-protection-form__hint">{protectionForm.lifeCover.hint}</span>
+          >
+            <option value="10000000">1 Cr</option>
+            <option value="20000000">2 Cr</option>
+            <option value="30000000">3 Cr</option>
+          </select>
         </div>
       </div>
 
