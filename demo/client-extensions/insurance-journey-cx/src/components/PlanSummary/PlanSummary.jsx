@@ -44,13 +44,26 @@ function PlanSummary({ formData = {}, quoteSelections = {}, onProceed, onBack })
     { label: 'Special Exit Benefit', value: 'No' },
   ], [derived, quoteSelections]);
 
+  // Formatter for annual income (e.g. "7_10_lakhs" -> "8.5 lakhs")
+  const formatIncome = (incomeStr) => {
+    if (!incomeStr) return '—';
+    const match = incomeStr.match(/^(\d+)_(\d+)/);
+    if (match) {
+      const start = parseInt(match[1]);
+      const end = parseInt(match[2]);
+      const avg = (start + end) / 2;
+      return `${avg} lakhs`;
+    }
+    return incomeStr.replace(/_/g, ' '); // Fallback: replace underscores
+  };
+
   // Build dynamic personal info
   const dynamicPersonalInfo = useMemo(() => [
     { label: 'Full Name', value: derived.userName },
     { label: 'Date of Birth', value: derived.dateOfBirth },
     { label: 'Gender', value: derived.gender },
     { label: 'Tobacco User', value: derived.tobaccoUser },
-    { label: 'Annual Income', value: derived.annualIncome },
+    { label: 'Annual Income', value: formatIncome(derived.annualIncome) },
     { label: 'Mobile Number', value: derived.mobileNumber },
     { label: 'Email ID', value: derived.emailId },
   ], [derived]);

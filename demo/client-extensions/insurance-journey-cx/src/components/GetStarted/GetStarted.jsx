@@ -19,10 +19,13 @@ import {
   BANNER_DISCLAIMER,
 } from '../../constants';
 import { useInitialForm } from '../../hooks';
+import { calculateAge } from '../../utils/formDataUtils';
 import './GetStarted.css';
 
 function GetStarted({ onProceed }) {
   const { values, errors, handleChange, handleSubmit } = useInitialForm();
+
+  const userAge = calculateAge(values.dateOfBirth);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -88,6 +91,7 @@ function GetStarted({ onProceed }) {
               value={values.dateOfBirth}
               onChange={handleChange}
               error={errors.dateOfBirth}
+              suffix={userAge ? `${userAge} Years` : ''}
               icon={calendarIcon}
             />
 

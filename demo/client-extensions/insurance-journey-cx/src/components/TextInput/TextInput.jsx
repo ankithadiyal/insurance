@@ -18,7 +18,7 @@
 import React from 'react';
 import './TextInput.css';
 
-function TextInput({ fieldId, label, required, type, placeholder, value, onChange, error, maxLength, prefix, icon }) {
+function TextInput({ fieldId, label, required, type, placeholder, value, onChange, error, maxLength, prefix, suffix, icon }) {
   const handleChange = (e) => {
     const val = e.target.value;
     // For pincode or mobile: only allow digits
@@ -51,6 +51,7 @@ function TextInput({ fieldId, label, required, type, placeholder, value, onChang
           aria-describedby={error ? `${fieldId}-error` : undefined}
           autoComplete="off"
         />
+        {suffix && <span className="ij-text-input__suffix">{suffix}</span>}
         {icon && (
           <span
             className="ij-text-input__icon"

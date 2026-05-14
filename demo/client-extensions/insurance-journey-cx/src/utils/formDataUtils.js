@@ -101,6 +101,7 @@ export function buildSummaryData(formData, quoteSelections) {
   return {
     userName: formData.fullName || '',
     userAge: age ? `${age} Yrs` : '',
+    rawAge: age,
     dateOfBirth: formatDobDisplay(formData.dateOfBirth),
     gender: formatGender(formData.gender),
     mobileNumber: formatMobile(formData.mobileNo),
