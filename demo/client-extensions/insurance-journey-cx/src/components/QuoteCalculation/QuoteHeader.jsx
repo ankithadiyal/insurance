@@ -9,15 +9,15 @@ import React from 'react';
 import { QUOTE_CONFIG } from '../../constants';
 import './QuoteHeader.css';
 
-function QuoteHeader({ userName, userAge }) {
+function QuoteHeader({ userName, userAge, amount, duration }) {
   const { header } = QUOTE_CONFIG;
 
   return (
     <div className="ij-quote-header">
       <div className="ij-quote-header__pay-info">
         <span className="ij-quote-header__label">{header.youPayPrefix}</span>
-        <span className="ij-quote-header__amount">{header.amount}</span>
-        <span className="ij-quote-header__duration">{header.duration}</span>
+        <span className="ij-quote-header__amount">{amount || header.amount}</span>
+        <span className="ij-quote-header__duration">{duration || header.duration}</span>
         <button className="ij-quote-header__info-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>

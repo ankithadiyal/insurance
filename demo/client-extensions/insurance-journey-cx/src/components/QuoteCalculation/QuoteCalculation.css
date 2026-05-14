@@ -11,7 +11,29 @@
 .ij-quote-page__container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 32px 20px 100px;
+}
+
+.ij-quote-page__formula-info {
+  position: fixed;
+  bottom: 80px; /* Just above StickyRateSection */
+  left: 0;
+  right: 0;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #64748b;
+  z-index: 90;
+  transition: all 0.3s ease;
+}
+
+.ij-quote-page__formula-info svg {
+  color: #0056a6;
 }
 
 .ij-quote-page__content {

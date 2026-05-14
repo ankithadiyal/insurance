@@ -57,22 +57,18 @@ export const QUOTE_CONFIG = {
           label: 'Pay till age 41',
           duration: '(For 10 Years)',
           price: '₹1,436 Per Month',
-          saveAmount: 'Save ₹1.07 Lakh',
-          recommended: true,
         },
         {
           id: 'limited-46',
           label: 'Pay till age 46',
           duration: '(For 15 Years)',
           price: '₹1,072 Per Month',
-          saveAmount: 'Save ₹80,280',
         },
         {
           id: 'limited-51',
           label: 'Pay till age 51',
           duration: '(For 20 Years)',
           price: '₹940 Per Month',
-          saveAmount: 'Save ₹38,580',
         }
       ]
     }

@@ -11,7 +11,8 @@ import ProtectionForm from './ProtectionForm';
 import QuoteHero from './QuoteHero';
 import PaymentOptions from './PaymentOptions';
 import StickyRateSection from './StickyRateSection';
-import { calculateAge, formatCurrency } from '../../utils';
+import { useQuote } from '../../hooks';
+import { calculateAge, calculateTillYear, formatCurrency } from '../../utils';
 import './QuoteCalculation.css';
 
 /**
@@ -28,7 +29,10 @@ const PREMIUM_CONFIG = {
   
   // Term Formula Parameters: F(term) = 1 + (Term - Offset) / Divisor
   termOffset: 20,         
-  termDivisor: 100
+  termDivisor: 100,
+
+  // Human-readable formula for the UI
+  formulaDescription: "Premium = Base Rate × (1 + (Policy Term - 20) / 100) × Risk Factors"
 };
 
 function QuoteCalculation({ formData = {}, onProceed }) {
@@ -75,7 +79,13 @@ function QuoteCalculation({ formData = {}, onProceed }) {
     }
 
     const monthly = Math.round(finalAnnual / 12);
-    return { monthly, savings: Math.max(0, Math.round(savings)) };
+    const total = Math.round(finalAnnual * paymentTerm);
+    
+    return { 
+      monthly, 
+      total,
+      savings: Math.max(0, Math.round(savings)) 
+    };
   };
 
   // 4. Generate dynamic options for the UI
@@ -97,15 +107,22 @@ function QuoteCalculation({ formData = {}, onProceed }) {
       label: `Pay till age ${targetAge}`,
       duration: `(For ${targetAge - age} Years)`,
       price: `${formatCurrency(res.monthly)} Per Month`,
-      saveAmount: `Save ${formatCurrency(res.savings)}`,
-      recommended: idx === 0,
-      monthlyValue: res.monthly
+      monthlyValue: res.monthly,
+      totalValue: res.total
     };
   });
 
-  // 5. Selected Premium for Sticky Footer
+  // 5. Selected Premium for Sticky Footer & Header
   const allOptions = [regularOption, ...limitedOptions];
   const activeOption = allOptions.find(o => o.id === selectedPaymentOption) || regularOption;
+
+  // Format total amount (e.g., ₹3.20 Lakh)
+  const formatLakh = (val) => {
+    if (val >= 100000) {
+      return `₹${(val / 100000).toFixed(2)} Lakh`;
+    }
+    return formatCurrency(val);
+  };
 
   const handleProceed = () => {
     // Pass everything back to App
@@ -115,8 +132,13 @@ function QuoteCalculation({ formData = {}, onProceed }) {
   return (
     <div className="ij-quote-page">
       <div className="ij-quote-page__container">
-        {/* Top Header — dynamic name/age */}
-        <QuoteHeader userName={userName} userAge={userAge} />
+        {/* Top Header — dynamic name/age/amount */}
+        <QuoteHeader 
+          userName={userName} 
+          userAge={userAge} 
+          amount={formatLakh(activeOption.totalValue || regularRes.total)}
+          duration={`(Till ${calculateTillYear(age, numericCoverTillAge)})`} 
+        />
 
         <div className="ij-quote-page__content">
           {/* Sidebar */}
@@ -154,6 +176,15 @@ function QuoteCalculation({ formData = {}, onProceed }) {
       </div>
 
       {/* Bottom Rate Section */}
+      <div className="ij-quote-page__formula-info">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+          <path d="M12 16V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M12 8H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+        <span>Calculation logic: {PREMIUM_CONFIG.formulaDescription}</span>
+      </div>
+
       <StickyRateSection 
         price={formatCurrency(activeOption.monthlyValue)}
         frequency={paymentFrequency}
